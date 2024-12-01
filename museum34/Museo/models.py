@@ -29,7 +29,7 @@ class Configuracion(models.Model):
 
 class Comentarios(models.Model):
     usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE, related_name='comentarios')
-    modelo = models.ForeignKey('Modelo', on_delete=models.CASCADE, related_name='comentarios')    
+    modelo = models.ForeignKey('Modelos', on_delete=models.CASCADE, related_name='comentarios')    
     texto = models.TextField()
     fecha = models.DateTimeField(auto_now_add=True)
     def __str__(self):
