@@ -15,7 +15,7 @@ class Usuario(models.Model):
 class Modelos(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.TextField(blank=True, null=True)
-    direccion = models.CharField(max_length=50)
+    direccion = models.CharField(max_length=50, default="Sin dirección")
     def __str__(self):
         return self.nombre
 
