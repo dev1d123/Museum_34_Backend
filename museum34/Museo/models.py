@@ -15,17 +15,23 @@ class Usuario(models.Model):
 class Modelos(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.TextField(blank=True, null=True)
-    archivo = models.FileField(upload_to='modelos/')
+    direccion = models.CharField(max_length=50)
     def __str__(self):
         return self.nombre
 
 class Configuracion(models.Model):
-    sensibilidad = models.SmallIntegerField(default=5)
-    brillo = models.SmallIntegerField(default=50)
+    brillo = models.SmallIntegerField(default=50)  # Nivel de brillo, por defecto 50
+    volumen = models.SmallIntegerField(default=50)  # Nivel de volumen, por defecto 50
+    velocidad_movimiento = models.SmallIntegerField(default=5)  # Velocidad de movimiento, por defecto 5
+    sensibilidad = models.SmallIntegerField(default=5)  # Nivel de sensibilidad, por defecto 5
+    rutas = models.BooleanField(default=False)  # Indica si las rutas están habilitadas o no
     
     def __str__(self):
-        return f"Configuracion {self.id}"
-    
+        return (
+            f"Configuracion {self.id} - Brillo: {self.brillo}, "
+            f"Volumen: {self.volumen}, VelocidadMovimiento: {self.velocidad_movimiento}, "
+            f"Sensibilidad: {self.sensibilidad}, Rutas: {'Habilitadas' if self.rutas else 'Deshabilitadas'}"
+        )
 
 class Comentarios(models.Model):
     usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE, related_name='comentarios')
