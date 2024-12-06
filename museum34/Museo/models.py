@@ -22,8 +22,8 @@ class Modelos(models.Model):
 class Configuracion(models.Model):
     brillo = models.SmallIntegerField(default=50)  # Nivel de brillo, por defecto 50
     volumen = models.SmallIntegerField(default=50)  # Nivel de volumen, por defecto 50
-    velocidad_movimiento = models.SmallIntegerField(default=5)  # Velocidad de movimiento, por defecto 5
-    sensibilidad = models.SmallIntegerField(default=5)  # Nivel de sensibilidad, por defecto 5
+    velocidad_movimiento = models.SmallIntegerField(default=50)  # Velocidad de movimiento, por defecto 5
+    sensibilidad = models.SmallIntegerField(default=50)  # Nivel de sensibilidad, por defecto 5
     rutas = models.BooleanField(default=False)  # Indica si las rutas están habilitadas o no
     
     def __str__(self):
